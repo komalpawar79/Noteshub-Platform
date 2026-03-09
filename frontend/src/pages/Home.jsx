@@ -23,15 +23,15 @@ export function Home() {
             <BookOpen className="mx-auto text-primary" size={80} />
           </motion.div>
 
-          <h1 className="text-6xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
             Welcome to <span className="text-primary">NotesHub</span>
           </h1>
           
-          <p className="text-xl text-gray-600 mb-12">
+          <p className="text-lg md:text-xl text-gray-600 mb-12">
             Your university's premier platform for sharing and discovering academic notes
           </p>
 
-          <div className="flex gap-4 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Button 
               onClick={() => navigate('/dashboard')}
               className="text-lg px-8 py-4 flex items-center gap-2"
@@ -49,7 +49,7 @@ export function Home() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-3 gap-8 mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
             <motion.div
               whileHover={{ y: -10 }}
               className="bg-white p-8 rounded-xl shadow-lg"
@@ -86,10 +86,10 @@ export function Home() {
           viewport={{ once: true }}
           className="mt-32 max-w-5xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-center mb-4">How It Works</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-4">How It Works</h2>
           <p className="text-center text-gray-600 mb-16">Get started in three simple steps</p>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 1
@@ -123,10 +123,10 @@ export function Home() {
           viewport={{ once: true }}
           className="mt-32 max-w-6xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-center mb-4">Why Choose NotesHub?</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-4">Why Choose NotesHub?</h2>
           <p className="text-center text-gray-600 mb-16">Everything you need for collaborative learning</p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-md">
               <Download className="text-primary mb-3" size={36} />
               <h3 className="font-bold text-lg mb-2">Easy Downloads</h3>
@@ -170,13 +170,13 @@ export function Home() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-32 text-center bg-primary text-white rounded-2xl p-12 max-w-4xl mx-auto"
+          className="mt-32 text-center bg-primary text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl font-bold mb-4">Start Sharing Knowledge Today</h2>
-          <p className="text-xl mb-8 opacity-90">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">Start Sharing Knowledge Today</h2>
+          <p className="text-base md:text-xl mb-8 opacity-90">
             Upload your notes, help your peers, and build a stronger academic community together
           </p>
-          <div className="grid md:grid-cols-3 gap-6 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
             <div className="bg-white/10 backdrop-blur rounded-lg p-6">
               <div className="text-3xl font-bold mb-2">10,000+</div>
               <div className="opacity-90">Notes Shared</div>

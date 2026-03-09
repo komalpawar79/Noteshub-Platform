@@ -42,22 +42,22 @@ export function Dashboard() {
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-2 gap-4">
           <div>
-            <h1 className="text-4xl font-bold">Discover Notes</h1>
-            <p className="text-gray-600">Browse and download notes shared by students and faculty</p>
+            <h1 className="text-2xl md:text-4xl font-bold">Discover Notes</h1>
+            <p className="text-sm md:text-base text-gray-600">Browse and download notes shared by students and faculty</p>
           </div>
           <Button 
             onClick={() => navigate('/upload')} 
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 w-full md:w-auto justify-center"
           >
             <Plus size={20} />
-            Add Notes
+            <span className="md:inline">Add Notes</span>
           </Button>
         </div>
       </motion.div>
 
-      <form onSubmit={handleSearch} className="mb-6 flex gap-4">
+      <form onSubmit={handleSearch} className="mb-6 flex flex-col sm:flex-row gap-4">
         <div className="flex-1 relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
           <Input
@@ -67,12 +67,12 @@ export function Dashboard() {
             className="pl-10"
           />
         </div>
-        <Button type="submit">Search</Button>
+        <Button type="submit" className="w-full sm:w-auto">Search</Button>
       </form>
 
-      <div className="flex gap-4 mb-6 flex-wrap">
+      <div className="flex flex-col sm:flex-row gap-4 mb-6 flex-wrap">
         <select
-          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary w-full sm:w-auto"
           value={filters.sort}
           onChange={(e) => setFilters({ ...filters, sort: e.target.value })}
         >
@@ -82,7 +82,7 @@ export function Dashboard() {
           <option value="likes">Most Liked</option>
         </select>
         <select
-          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary w-64"
+          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary w-full sm:w-64"
           value={filters.course}
           onChange={(e) => setFilters({ ...filters, course: e.target.value })}
         >
@@ -102,12 +102,13 @@ export function Dashboard() {
           placeholder="Filter by subject (e.g., Computer Science)"
           value={filters.subject}
           onChange={(e) => setFilters({ ...filters, subject: e.target.value })}
-          className="w-64"
+          className="w-full sm:w-64"
         />
         {(filters.subject || filters.course) && (
           <Button
             variant="secondary"
             onClick={() => setFilters({ ...filters, subject: '', course: '' })}
+            className="w-full sm:w-auto"
           >
             Clear Filters
           </Button>

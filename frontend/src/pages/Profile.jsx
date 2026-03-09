@@ -55,14 +55,14 @@ export function Profile() {
   if (!user) return <div className="text-center py-12">Loading...</div>;
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
+    <div className="container mx-auto px-4 py-8 max-w-4xl overflow-x-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <div className="bg-white rounded-xl shadow-md p-8 mb-6">
-          <div className="flex items-start justify-between mb-6">
-            <div className="flex items-center gap-4">
+        <div className="bg-white rounded-xl shadow-md p-4 md:p-8 mb-6">
+          <div className="flex flex-col md:flex-row items-start justify-between mb-6 gap-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full md:w-auto">
               <div className="relative">
                 {user.avatar ? (
                   <img src={user.avatar} alt={user.name} className="w-20 h-20 rounded-full object-cover" />
@@ -84,14 +84,14 @@ export function Profile() {
                 )}
               </div>
               <div>
-                <h1 className="text-3xl font-bold">{user.name}</h1>
-                <p className="text-gray-600">{user.email}</p>
+                <h1 className="text-xl md:text-3xl font-bold break-words">{user.name}</h1>
+                <p className="text-xs md:text-base text-gray-600 break-all">{user.email}</p>
                 <span className="inline-block mt-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">
                   {user.role}
                 </span>
               </div>
             </div>
-            <Button onClick={() => setEditing(!editing)} variant="outline">
+            <Button onClick={() => setEditing(!editing)} variant="outline" className="w-full md:w-auto">
               {editing ? 'Cancel' : 'Edit Profile'}
             </Button>
           </div>
@@ -141,7 +141,7 @@ export function Profile() {
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="bg-white rounded-xl shadow-md p-6 text-center"
@@ -161,25 +161,25 @@ export function Profile() {
           </motion.div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <div className="flex gap-4 mb-6 border-b">
+        <div className="bg-white rounded-xl shadow-md p-4 md:p-6">
+          <div className="flex gap-2 md:gap-4 mb-6 border-b overflow-x-auto">
             <button
               onClick={() => setActiveTab('stats')}
-              className={`pb-2 px-4 ${activeTab === 'stats' ? 'border-b-2 border-primary text-primary' : 'text-gray-600'}`}
+              className={`pb-2 px-2 md:px-4 text-sm md:text-base whitespace-nowrap ${activeTab === 'stats' ? 'border-b-2 border-primary text-primary' : 'text-gray-600'}`}
             >
               Statistics
             </button>
             <button
               onClick={() => setActiveTab('uploaded')}
-              className={`pb-2 px-4 ${activeTab === 'uploaded' ? 'border-b-2 border-primary text-primary' : 'text-gray-600'}`}
+              className={`pb-2 px-2 md:px-4 text-sm md:text-base whitespace-nowrap ${activeTab === 'uploaded' ? 'border-b-2 border-primary text-primary' : 'text-gray-600'}`}
             >
-              Uploaded Notes ({user.uploadedNotes?.length || 0})
+              Uploaded ({user.uploadedNotes?.length || 0})
             </button>
             <button
               onClick={() => setActiveTab('downloaded')}
-              className={`pb-2 px-4 ${activeTab === 'downloaded' ? 'border-b-2 border-primary text-primary' : 'text-gray-600'}`}
+              className={`pb-2 px-2 md:px-4 text-sm md:text-base whitespace-nowrap ${activeTab === 'downloaded' ? 'border-b-2 border-primary text-primary' : 'text-gray-600'}`}
             >
-              Downloaded Notes ({user.downloadedNotes?.length || 0})
+              Downloaded ({user.downloadedNotes?.length || 0})
             </button>
           </div>
 
