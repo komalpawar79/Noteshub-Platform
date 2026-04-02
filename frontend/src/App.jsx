@@ -50,10 +50,6 @@ function App() {
     setUser(null);
   };
 
-  if (loading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
-  }
-
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-gray-50 flex flex-col">

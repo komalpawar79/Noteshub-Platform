@@ -5,6 +5,7 @@ import { auth } from '@/services/api';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/Button';
 import { useNavigate } from 'react-router-dom';
+import { ProfileSkeleton } from '@/components/Skeleton';
 
 export function Profile() {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ export function Profile() {
     }
   };
 
-  if (!user) return <div className="text-center py-12">Loading...</div>;
+  if (!user) return <ProfileSkeleton />;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl overflow-x-hidden">

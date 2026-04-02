@@ -5,6 +5,7 @@ import { Download, Heart, Eye, Send } from 'lucide-react';
 import { notes, comments as commentsApi } from '@/services/api';
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
+import { NoteDetailSkeleton } from '@/components/Skeleton';
 
 export function NoteDetail() {
   const { id } = useParams();
@@ -76,7 +77,7 @@ export function NoteDetail() {
     }
   };
 
-  if (!note) return <div className="text-center py-12">Loading...</div>;
+  if (!note) return <NoteDetailSkeleton />;
 
   return (
     <div className="container mx-auto px-4 py-8">

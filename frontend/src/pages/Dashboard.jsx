@@ -6,6 +6,7 @@ import { notes } from '@/services/api';
 import { NoteCard } from '@/components/NoteCard';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/Button';
+import { DashboardSkeleton } from '@/components/Skeleton';
 
 export function Dashboard() {
   const navigate = useNavigate();
@@ -116,7 +117,7 @@ export function Dashboard() {
       </div>
 
       {loading ? (
-        <div className="text-center py-12">Loading...</div>
+        <DashboardSkeleton />
       ) : (
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"

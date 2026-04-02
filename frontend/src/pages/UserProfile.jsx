@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Upload, ExternalLink } from 'lucide-react';
 import { auth } from '@/services/api';
+import { ProfileSkeleton } from '@/components/Skeleton';
 
 export function UserProfile() {
   const { id } = useParams();
@@ -25,7 +26,7 @@ export function UserProfile() {
     }
   };
 
-  if (loading) return <div className="text-center py-12">Loading...</div>;
+  if (loading) return <ProfileSkeleton />;
   if (!user) return <div className="text-center py-12">User not found</div>;
 
   return (

@@ -60,7 +60,7 @@ export function Login({ onLogin }) {
           </div>
 
           <Button type="submit" disabled={loading} className="w-full">
-            {loading ? 'Logging in...' : 'Login'}
+            {loading ? 'Please wait...' : 'Login'}
           </Button>
         </form>
 
