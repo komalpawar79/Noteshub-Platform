@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Download, Heart, Eye, Send } from 'lucide-react';
+import { Download, Heart, Eye, Send, ArrowLeft } from 'lucide-react';
 import { notes, comments as commentsApi } from '@/services/api';
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
@@ -81,6 +81,13 @@ export function NoteDetail() {
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <button
+        onClick={() => navigate(-1)}
+        className="mb-6 flex items-center gap-2 text-primary hover:bg-primary/10 px-3 py-2 rounded-lg transition-colors"
+      >
+        <ArrowLeft size={20} />
+        Back
+      </button>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
