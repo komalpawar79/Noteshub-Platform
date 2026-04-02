@@ -10,6 +10,16 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
+API.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 404 || error.code === 'ERR_NETWORK') {
+      console.warn('API Server not available or route not found');
+    }
+    return Promise.reject(error);
+  }
+);
+
 export const auth = {
   register: (data) => API.post('/auth/register', data),
   login: (data) => API.post('/auth/login', data),

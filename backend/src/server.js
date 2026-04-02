@@ -30,10 +30,14 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get('/api', (req, res) => res.json({ message: 'API running' }));
+
 app.use('/api/auth', authRoutes);
 app.use('/api/notes', noteRoutes);
 app.use('/api/comments', commentRoutes);
 app.use('/api/admin', adminRoutes);
+
+app.use((req, res) => res.status(404).json({ message: 'Route not found' }));
 
 // Socket.io for real-time chat
 io.on('connection', (socket) => {
