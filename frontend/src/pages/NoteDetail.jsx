@@ -81,13 +81,15 @@ export function NoteDetail() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <button
+      <motion.button
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
         onClick={() => navigate(-1)}
-        className="mb-6 flex items-center gap-2 text-primary hover:bg-primary/10 px-3 py-2 rounded-lg transition-colors"
+        className="mb-8 flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-all font-medium shadow-md"
       >
         <ArrowLeft size={20} />
-        Back
-      </button>
+        Back to Dashboard
+      </motion.button>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

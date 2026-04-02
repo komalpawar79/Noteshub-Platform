@@ -46,7 +46,6 @@ export function Profile() {
       setEditing(false);
       setAvatarFile(null);
       alert('Profile updated successfully');
-      window.location.reload(); // Refresh to show new avatar
     } catch (error) {
       console.error(error);
       alert('Update failed: ' + (error.response?.data?.message || error.message));
