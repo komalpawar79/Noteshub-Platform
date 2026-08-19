@@ -20,7 +20,10 @@ export function Login({ onLogin }) {
       onLogin(data.user);
       navigate('/');
     } catch (error) {
-      alert(error.response?.data?.message || 'Login failed');
+      const message = error.code === 'ECONNABORTED'
+        ? 'Login timed out. Please check that the server is running and try again.'
+        : error.response?.data?.message || 'Login failed';
+      alert(message);
     } finally {
       setLoading(false);
     }
